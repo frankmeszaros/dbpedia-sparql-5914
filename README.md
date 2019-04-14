@@ -5,27 +5,26 @@
 
 ## DBPedia
 
-This is an h1 heading
+DBPedia is a crowd-sourced effort that aims to extract structured data from a variety of different Wikimedia projects. The data is structured as an open knowledge graph (OKG), so it's available to everyone on the web. Since DBPedia is served as linked data, it can be interacted with in a variety of different ways:
+
+* standard web browsers
+* automated crawlers
+* **complex queries with SQL-like query languages (e.g. SPARQL)**
+
+
+
 
 ## SPARQL
 
-This is an h1 heading
-
-### Sub-heading
-
-This is an h2 heading
-
-#### Sub-sub-heading
-
-This is an h3 heading
+Some stuff about SPARQL
 
 ## Putting it together
 
-This is an h1 heading
+Some stuff about what it takes to add this into your next web project.
 
 ## Sources
-* [DBPedia](https://wiki.dbpedia.org/)
-* [SPARQL](https://en.wikipedia.org/wiki/SPARQL)
+1. [DBPedia](https://wiki.dbpedia.org/)
+2. [SPARQL](https://en.wikipedia.org/wiki/SPARQL)
 
 ## Authors
 
