@@ -67,7 +67,8 @@ results = sparql.query().convert()
 1. [DBPedia](https://wiki.dbpedia.org/)
 2. [Why is DBPedia Important](https://medium.com/openlink-software-blog/what-is-dbpedia-and-why-is-it-important-d306b5324f90)
 3. [SPARQL](https://en.wikipedia.org/wiki/SPARQL)
-4. [SPARQL Python Library](https://github.com/RDFLib/sparqlwrapper)
+4. [Cambridge Semantics](https://www.cambridgesemantics.com/blog/semantic-university/learn-sparql/sparql-vs-sql/)
+6. [SPARQL Python Library](https://github.com/RDFLib/sparqlwrapper)
 
 
 ## Authors
