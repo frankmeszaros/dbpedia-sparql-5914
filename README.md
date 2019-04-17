@@ -21,7 +21,9 @@ This data from the Wikimedia projects is exposed in a form that many tools, incl
 
 ## SPARQL
 
-Some stuff about SPARQL
+SPARQL is a query language that works on data stored in the Resource Description Framework (RDF) format. RDF data can be thought of as a loose interpretation of key-value data, consisting of subject-predicate-object triplets. These triplets are very similar to MongoDBs "document-key-value" triplets. To simplify in terms of relational databases, the subject is like an entity, the predicate it's columns, and the objects are the actual values for those columns. Unlike relational databases, RDF can have multiple entries per predicate, and even the object data type is heterogenous, though usually implied by the predicate.
+
+What really sets SPARQL apart though, is the ability to use web identifiers for the entities that are being described. This allows for the RDF data to be merged from multiple databases without any sort of intermediate step of mapping terms between them that a relational would require. This means that as long as your data follows the RDF format, you can set upa SPARQL endpoint that basically allows you to be a service provider for your data, and to use data from other endpoints to create a mashup that can be of great use.
 
 ## Putting it together in Python
 
