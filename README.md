@@ -124,7 +124,7 @@ at the beginning of your query. The above query would become
     }
 
 This is important to know as DBPedia has many built in prefixes that it assumes
-you will be using:
+you will be using including
 
 ```
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
