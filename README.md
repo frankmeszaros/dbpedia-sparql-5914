@@ -206,21 +206,37 @@ Next we have to set a query
 ```
 sparql.setQuery(
     """
-    SELECT ?name ?birth ?person
-    WHERE {
-      ?person a dbo:MusicalArtist .
-      ?person dbo:birthDate ?birth .
-      ?person foaf:name ?name .
-    } 
-    LIMIT 10
+    SELECT ?genus ?species WHERE { dbr:Dog dbp:genus ?genus .
+                                   dbr:Dog dbp:species ?species
+    }
     """
 )
 ```
 
 Then we run the query and format it as JSON for easy mode parsing!
+
 ```
 sparql.setReturnFormat(JSON)
 results = sparql.query().convert()
+```
+which when pretty printed becomes
+
+```
+{'head': {'link': [], 'vars': ['genus', 'species']},
+ 'results': {'distinct': False,
+  'ordered': True,
+  'bindings': [{'genus': {'type': 'typed-literal',
+     'datatype': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#langString',
+     'value': 'Canis'},
+    'species': {'type': 'typed-literal',
+     'datatype': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#langString',
+     'value': 'Canis lupus familiaris'}},
+   {'genus': {'type': 'typed-literal',
+     'datatype': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#langString',
+     'value': 'Canis'},
+    'species': {'type': 'typed-literal',
+     'datatype': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#langString',
+     'value': 'lupus'}}]}}
 ```
 
 ## Sources
