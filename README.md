@@ -100,10 +100,53 @@ To do this, we need to add additional queries leveraging the returned dog object
 Multiple statements can be separated with a `.`. For this example:
 
     SELECT ?name WHERE { ?dog <http://www.dog.fake/dog#breed> "Beagle" .
-                         ?dog <http://www.dog.fake/dog#name ?name>
+                         ?dog <http://www.dog.fake/dog#name> ?name
     }
 
 Will return "Spike".
+
+There is another concept that comes up when working with SPARQL, which are
+prefixes. Prefixes are syntactic sugar which can shorted queries. They are
+defined by putting something like
+
+    PREFIX dog: <http://www.dog.fake/dog#>
+
+at the beginning of your query. The above query would become
+
+    PREFIX dog: <http://www.dog.fake/dog#>
+
+    SELECT ?name WHERE { ?dog dog:breed "Beagle" .
+                         ?dog dog:name ?name
+    }
+
+This is important to know as DBPedia has many built in prefixes that it assumes
+you will be using.
+##DBPedia and SPARQL
+With the basic groundwork for SPARQL laid, we can now talk about how to use it
+to search DBPedia. Since it is a wrapper for Wikipedia, all the subject tags
+found on Wikipedia pages will have statements associated with them. To look at
+the tags for the Dog entry on Wikipedia, you can go to
+[the following page](http://dbpedia.org/page/Dog). This URL scheme should work for
+any existing Wikipedia entry, although not everything is a page so extensions
+will vary slightly.
+
+Suppose we want to get the genus and species of the dog. In this case, since we
+already know the URI for the "Dog" resource, we can skip querying for that and
+just ask for our desired objects. In the query below, `dbr` refers to resources
+(i.e. top level pages) and `dbp` refers to basic information on the page. Refer
+back to the link above for more examples of `dbr` values.
+
+    SELECT ?genus ?species WHERE { dbr:Dog dbp:genus ?genus .
+                                   dbr:Dog dbp:species ?species
+    }
+
+There are two listings for species (one short and one long), so we get a cross
+product of that with the genus. If we just wanted the first result no matter
+what, we could limit the results. To do this change the query to
+
+    SELECT ?genus ?species WHERE { dbr:Dog dbp:genus ?genus .
+                                   dbr:Dog dbp:species ?species
+    } LIMIT 1
 
 ## Putting it together in Python
 
@@ -149,6 +192,8 @@ results = sparql.query().convert()
 3. [SPARQL](https://en.wikipedia.org/wiki/SPARQL)
 4. [Cambridge Semantics](https://www.cambridgesemantics.com/blog/semantic-university/learn-sparql/sparql-vs-sql/)
 6. [SPARQL Python Library](https://github.com/RDFLib/sparqlwrapper)
+7. [XML RDF](https://www.w3schools.com/xml/xml_rdf.asp)
+8. Learning SPARQL by Bob DuCharme (ISBN: 9781449371432)
 
 
 ## Authors
