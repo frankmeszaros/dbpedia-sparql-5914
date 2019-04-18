@@ -25,6 +25,24 @@ SPARQL is a query language that works on data stored in the Resource Description
 
 What really sets SPARQL apart though, is the ability to use web identifiers for the entities that are being described. This allows for the RDF data to be merged from multiple databases without any sort of intermediate step of mapping terms between them that a relational would require. This means that as long as your data follows the RDF format, you can set upa SPARQL endpoint that basically allows you to be a service provider for your data, and to use data from other endpoints to create a mashup that can be of great use.
 
+## RDF
+### Overview
+To understand SPARQL, it is important to also understand how an RDF document is
+structured. RDF is based around the idea of storing statements, which include 3
+required parts: a subject, a predicate, and an object. For example, in the
+statement
+
+> The instructor of CSE 5914 is Stephen Boxwell.
+
+* The subject of the statement is CSE 5914
+* The predicate is instructor
+* The object is Stephen Boxwell
+
+With this in mind, we can consider how this information might be structured
+within the general framework of XML.
+### Syntax
+
+
 ## Putting it together in Python
 
 First things first. You'll need to install or make your own SPARQL Wrapper. We chose to use a python wrapper
