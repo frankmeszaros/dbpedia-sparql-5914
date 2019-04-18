@@ -290,5 +290,3 @@ which when pretty printed becomes
 * **Shashank Rajkumar**
 * **Skyler Reimer**
 * **Ethan Smith**
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
