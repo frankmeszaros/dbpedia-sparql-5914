@@ -23,7 +23,9 @@ SPARQL is a query language that works on data stored in the Resource Description
 What really sets SPARQL apart though, is the ability to use web identifiers for the entities that are being described. This allows for the RDF data to be merged from multiple databases without any sort of intermediate step of mapping terms between them that a relational would require. This means that as long as your data follows the RDF format, you can set upa SPARQL endpoint that basically allows you to be a service provider for your data, and to use data from other endpoints to create a mashup that can be of great use.
 
 ## RDF
+
 ### Overview
+
 To understand SPARQL, it is important to also understand how an RDF document is
 structured. RDF is based around the idea of storing statements, which include 3
 required parts: a subject, a predicate, and an object. For example, in the
@@ -37,7 +39,9 @@ statement
 
 With this in mind, we can consider how this information might be structured
 within the general framework of XML.
+
 ### Syntax
+
 RDF files begin with the standard XML version tag
 
     <?xml version="1.0"?>
@@ -121,7 +125,9 @@ at the beginning of your query. The above query would become
 
 This is important to know as DBPedia has many built in prefixes that it assumes
 you will be using.
+
 ##DBPedia and SPARQL
+
 With the basic groundwork for SPARQL laid, we can now talk about how to use it
 to search DBPedia. Since it is a wrapper for Wikipedia, all the subject tags
 found on Wikipedia pages will have statements associated with them. To look at
@@ -187,6 +193,7 @@ results = sparql.query().convert()
 ```
 
 ## Sources
+
 1. [DBPedia](https://wiki.dbpedia.org/)
 2. [Why is DBPedia Important](https://medium.com/openlink-software-blog/what-is-dbpedia-and-why-is-it-important-d306b5324f90)
 3. [SPARQL](https://en.wikipedia.org/wiki/SPARQL)
