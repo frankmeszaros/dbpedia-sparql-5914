@@ -126,7 +126,7 @@ at the beginning of your query. The above query would become
 This is important to know as DBPedia has many built in prefixes that it assumes
 you will be using.
 
-##DBPedia and SPARQL
+## DBPedia and SPARQL
 
 With the basic groundwork for SPARQL laid, we can now talk about how to use it
 to search DBPedia. Since it is a wrapper for Wikipedia, all the subject tags
