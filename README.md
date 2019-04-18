@@ -154,6 +154,37 @@ what, we could limit the results. To do this change the query to
                                    dbr:Dog dbp:species ?species
     } LIMIT 1
 
+While useful, this query is not terribly interesting. It is something that could
+be done without the overhead of DBPedia and SPARQL with simple web scraping.
+SPARQL can of course be used for much more complicated queries through
+additional metadata and relations it has access to. The ontology capabilities
+are particularly useful, and can help with queries the involve classification
+and instances of various resources. Keeping with the dog theme, if we want to
+find examples of things that are dogs we could run
+
+    PREFIX d: <http://dbpedia.org/ontology/>
+
+    SELECT ?examples
+    WHERE {
+        ?examples d:species :Dog .
+    }
+
+which returns a variety of real and fictional dogs including Brian Griffin and
+McGruff. Going further with this, we can get a join of (fictional) dogs with
+their respective creators by doing
+
+    PREFIX d: <http://dbpedia.org/ontology/>
+
+    SELECT ?examples ?name
+    WHERE {
+        ?examples d:species :Dog .
+        ?examples d:creator ?name .
+    }
+
+This will only return dogs that have a creator associated with them, so if all
+the dogs returned in `?examples` were real dogs with no creators this query
+would return nothing.
+
 ## Putting it together in Python
 
 First things first. You'll need to install or make your own SPARQL Wrapper. We chose to use a python wrapper
