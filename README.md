@@ -80,7 +80,7 @@ the basics of the framework in order to make use of SPARQL and DBPedia.
 Apache Jena and run the following command using the example files provided (be
 sure to edit query.rq first):
 
-    arq --data test.rdf --query.rq
+    arq --data test.rdf --query query.rq
 
 SPARQL is fairly similar to standard SQL, although it generally requires more
 information in order to successfully execute queries due to the nature of RDF
