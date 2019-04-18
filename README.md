@@ -16,10 +16,7 @@ This data from the Wikimedia projects is exposed in a form that many tools, incl
 * automated crawlers
 * **complex queries with SQL-like query languages (e.g. SPARQL)**
 
-
-
-
-## SPARQL
+## SPARQL Introduction
 
 SPARQL is a query language that works on data stored in the Resource Description Framework (RDF) format. RDF data can be thought of as a loose interpretation of key-value data, consisting of subject-predicate-object triplets. These triplets are very similar to MongoDBs "document-key-value" triplets. To simplify in terms of relational databases, the subject is like an entity, the predicate it's columns, and the objects are the actual values for those columns. Unlike relational databases, RDF can have multiple entries per predicate, and even the object data type is heterogenous, though usually implied by the predicate.
 
@@ -41,7 +38,37 @@ statement
 With this in mind, we can consider how this information might be structured
 within the general framework of XML.
 ### Syntax
+RDF files begin with the standard XML version tag
 
+    <?xml version="1.0"?>
+
+after which you can optionally define URI's for the various elements to be
+defined. An important one is to define the actual structure of RDF by including
+
+    <rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+at a minimum. You can add additional lines for each of the resources you wish to
+define. To define a "dog" resource, you could do the following:
+
+    <rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:dog="http://www.dog.fake/dog#">
+
+Next step is to define the actual resources. Following the dog example, a
+theoretical resource may look like
+
+    <rdf:Description
+    rdf:about="http:www.dog.fake/dogabout">
+        <dog:name>Spike</dog:name>
+        <dog:breed>Beagle</dog:breed>
+        <dog:bark>Woof!</dog:bark>
+    </rdf:Description>
+
+This tutorial focuses on DBPedia, which as previously stated is a massive
+collection of RDF or RDF like documents that can be queried with SPARQL. So
+while we will not be writing anymore RDF code, it is still vital to understand
+the basics of the framework in order to make use of SPARQL and DBPedia.
 
 ## Putting it together in Python
 
