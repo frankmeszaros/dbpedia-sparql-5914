@@ -1,4 +1,4 @@
 PREFIX dog: <http://www.dog.fake/dog#>
 
 SELECT ?name WHERE { ?dog dog:breed "Beagle" .
-											?dog dog:name ?name . }
+                     ?dog dog:name ?name . }
