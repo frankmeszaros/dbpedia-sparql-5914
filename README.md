@@ -1,7 +1,3 @@
-# Using DBPedia with SPARQL
-
-**TODO: Add small introduction paragraph/abstract.**
-
 Table of Contents
 =================
 
@@ -16,6 +12,13 @@ Table of Contents
       * [Putting it together in Python](#putting-it-together-in-python)
       * [Sources](#sources)
       * [Authors](#authors)
+
+# Using DBPedia with SPARQL
+
+In this tutorial we will cover how to access the public, machine readable site
+DBPedia, which contains information scraped from Wikipedia. This data is stored
+in RDF (or RDF like) format, and can be queried via a language called SPARQL. We
+will cover all 3 of these technologies to varying extents.
 
 ## DBPedia
 
