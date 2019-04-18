@@ -65,10 +65,45 @@ theoretical resource may look like
         <dog:bark>Woof!</dog:bark>
     </rdf:Description>
 
+Notice that the tags follow the subject, predicate, object paradigm. For the
+first line for instance, the subject of the statement is "dog", the predicate is
+"name", and the object is "Spike".
+
 This tutorial focuses on DBPedia, which as previously stated is a massive
 collection of RDF or RDF like documents that can be queried with SPARQL. So
 while we will not be writing anymore RDF code, it is still vital to understand
 the basics of the framework in order to make use of SPARQL and DBPedia.
+
+## SPARQL Syntax
+
+**Note**: To follow along with the non DBPedia examples below, you can install
+Apache Jena and run the following command using the example files provided (be
+sure to edit query.rq first):
+
+    arq --data test.rdf --query.rq
+
+SPARQL is fairly similar to standard SQL, although it generally requires more
+information in order to successfully execute queries due to the nature of RDF
+versus a DBMS. Queries follow the very general structure of
+
+    SELECT ?object WHERE { $subject $predicate $object }
+
+At least one of the values within the `WHERE` is unknown and denoted with a `?` as a prefix. This
+constitutes what you are querying for. So, to query for the resource of any dog that
+is a Beagle we would do
+
+    SELECT ?dog WHERE { ?dog <http://www.dog.fake/dog#breed> "Beagle" }
+
+Note that this will return the about URI for the dog resource. Normally this is
+not what we want; we want an actual object that is associated with the resource.
+To do this, we need to add additional queries leveraging the returned dog object.
+Multiple statements can be separated with a `.`. For this example:
+
+    SELECT ?name WHERE { ?dog <http://www.dog.fake/dog#breed> "Beagle" .
+                         ?dog <http://www.dog.fake/dog#name ?name>
+    }
+
+Will return "Spike".
 
 ## Putting it together in Python
 
