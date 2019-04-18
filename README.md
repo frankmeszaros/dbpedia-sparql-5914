@@ -1,7 +1,21 @@
 # Using DBPedia with SPARQL
 
 **TODO: Add small introduction paragraph/abstract.**
-**TODO: Table of contents**
+
+Table of Contents
+=================
+
+   * [Using DBPedia with SPARQL](#using-dbpedia-with-sparql)
+      * [DBPedia](#dbpedia)
+      * [SPARQL Introduction](#sparql-introduction)
+      * [RDF](#rdf)
+         * [Overview](#overview)
+         * [Syntax](#syntax)
+      * [SPARQL Syntax](#sparql-syntax)
+      * [DBPedia and SPARQL](#dbpedia-and-sparql)
+      * [Putting it together in Python](#putting-it-together-in-python)
+      * [Sources](#sources)
+      * [Authors](#authors)
 
 ## DBPedia
 
